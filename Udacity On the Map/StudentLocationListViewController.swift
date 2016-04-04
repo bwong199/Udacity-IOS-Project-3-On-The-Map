@@ -73,7 +73,7 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
                         }
                         
                     }
-                    
+                    self.do_table_refresh();
                     
                     print(jsonResult)
                     
@@ -92,20 +92,31 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
         self.tableView.reloadData()
     }
     
+    func do_table_refresh()
+    {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+            return
+        })
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.studentInformationList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell",
+                                                               forIndexPath: indexPath) as! ItemCell
+        
+        cell.updateLabels()
+        
         
         let info = self.studentInformationList[indexPath.row]
         
-        print(info)
-        
-        cell.textLabel!.text = info
-        
-        
+        cell.nameLabel.text = info
+        cell.linkLabel.text = info
+
+    
         
         return cell
     }
