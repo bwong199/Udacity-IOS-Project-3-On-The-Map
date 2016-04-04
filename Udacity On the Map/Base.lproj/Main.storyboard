@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4r-aT-N4W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d0n-Aw-TAN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -114,7 +114,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYe-ky-4tn">
                                                     <rect key="frame" x="18" y="0.0" width="348" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -148,7 +148,7 @@
         <!--Map-->
         <scene sceneID="yZG-w1-2KA">
             <objects>
-                <viewController id="d0n-Aw-TAN" sceneMemberID="viewController">
+                <viewController id="d0n-Aw-TAN" customClass="StudentLocationMapViewController" customModule="Udacity_On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AvR-PT-pMi"/>
                         <viewControllerLayoutGuide type="bottom" id="U0m-5b-64u"/>
@@ -156,9 +156,23 @@
                     <view key="view" contentMode="scaleToFill" id="BQa-Nr-6KI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ugK-NW-1oO">
+                                <rect key="frame" x="0.0" y="28" width="600" height="523"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ugK-NW-1oO" firstAttribute="top" secondItem="AvR-PT-pMi" secondAttribute="bottom" constant="8" id="4u8-b0-sVf"/>
+                            <constraint firstItem="U0m-5b-64u" firstAttribute="top" secondItem="ugK-NW-1oO" secondAttribute="bottom" id="7ds-u3-qmT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ugK-NW-1oO" secondAttribute="trailing" constant="-20" id="eHG-77-D4j"/>
+                            <constraint firstItem="ugK-NW-1oO" firstAttribute="leading" secondItem="BQa-Nr-6KI" secondAttribute="leadingMargin" constant="-20" id="khd-sB-za1"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="w0P-T8-fEJ"/>
+                    <connections>
+                        <outlet property="mapView" destination="ugK-NW-1oO" id="GqB-N1-3vf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJF-UX-jhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,7 +12,7 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
     
     @IBOutlet var tableView: UITableView!
     
-    var studentInformationList : [String] = []
+    var studentInformationList : [StudentInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +20,10 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        print("In List View Controller")
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=20&order=-updatedAt")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=100&order=-updatedAt")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         
@@ -41,7 +40,7 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
                     
                     self.presentViewController(alertController, animated: true, completion: nil)
                 })
-
+                
             }
             
             
@@ -50,24 +49,48 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
                 
                 do {
                     let jsonResult =  try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-
+                    
                     
                     if jsonResult.count > 0 {
                         if let items = jsonResult["results"] as? NSArray {
                             
                             for item in items {
                                 
-                                if let firstName = item["firstName"] as? String  {
+                                let firstName = item["firstName"] as! String
+                                
+                                let lastName = item["lastName"] as! String
+                                
+                                let latitudeDouble = item["latitude"] as! Double
+                                
+                                let latitude = String(latitudeDouble)
+                                
+                                let longitudeDouble = item["longitude"] as! Double
+                                
+                                let longitude = String(longitudeDouble)
+                                
+                                let mapString = item["mapString"] as! String
+                                
+                                let linkType = item["mediaURL"] as! String
+                                
+                                let link = String(linkType)
+                                
+                                
+                                print(firstName)
+                                print(lastName)
+                                print(latitude)
+                                print(longitude)
+                                print(mapString)
+                                print(link)
+                                print(" " )
+                                
+                                let studentItem =
                                     
-                                    if let lastName = item["lastName"] as? String {
-                                        
-                                        let studentName = firstName + " " + lastName
-                                        print(firstName + " " + lastName)
-                                        
-                                        self.studentInformationList.append(studentName)
-                                    }
-                                    
-                                }
+                                    StudentInfo(infoDict: ["firstName": firstName, "lastName": lastName, "latitude": latitude, "longitude":longitude, "mapString":mapString, "link": link])
+                                
+                                
+                                self.studentInformationList.append(studentItem)
+                                
+                                
                             }
                             
                         }
@@ -113,16 +136,21 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
         
         let info = self.studentInformationList[indexPath.row]
         
-        cell.nameLabel.text = info
-        cell.linkLabel.text = info
-
-    
+        cell.nameLabel.text = info.firstName + " " + info.lastName
+        cell.linkLabel.text = info.link
+        
+        
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
+        
+        let link = studentInformationList[indexPath.row].link
+        
+        if let requestUrl = NSURL(string: link) {
+            UIApplication.sharedApplication().openURL(requestUrl)
+        }
     }
     
 }
