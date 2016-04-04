@@ -12,6 +12,8 @@
 		C59E80C01CB069F00073FD05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59E80BE1CB069F00073FD05 /* Main.storyboard */; };
 		C59E80C21CB069F00073FD05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C59E80C11CB069F00073FD05 /* Assets.xcassets */; };
 		C59E80C51CB069F00073FD05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59E80C31CB069F00073FD05 /* LaunchScreen.storyboard */; };
+		C59E80CD1CB1FF5A0073FD05 /* StudentLocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E80CC1CB1FF5A0073FD05 /* StudentLocationListViewController.swift */; };
+		C59E80CF1CB206070073FD05 /* StudentLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E80CE1CB206070073FD05 /* StudentLocationMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C59E80C11CB069F00073FD05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C59E80C41CB069F00073FD05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C59E80C61CB069F00073FD05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C59E80CC1CB1FF5A0073FD05 /* StudentLocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationListViewController.swift; sourceTree = "<group>"; };
+		C59E80CE1CB206070073FD05 /* StudentLocationMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				C59E80BA1CB069F00073FD05 /* AppDelegate.swift */,
 				C59E80BC1CB069F00073FD05 /* ViewController.swift */,
+				C59E80CC1CB1FF5A0073FD05 /* StudentLocationListViewController.swift */,
+				C59E80CE1CB206070073FD05 /* StudentLocationMapViewController.swift */,
 				C59E80BE1CB069F00073FD05 /* Main.storyboard */,
 				C59E80C11CB069F00073FD05 /* Assets.xcassets */,
 				C59E80C31CB069F00073FD05 /* LaunchScreen.storyboard */,
@@ -138,6 +144,8 @@
 			files = (
 				C59E80BD1CB069F00073FD05 /* ViewController.swift in Sources */,
 				C59E80BB1CB069F00073FD05 /* AppDelegate.swift in Sources */,
+				C59E80CF1CB206070073FD05 /* StudentLocationMapViewController.swift in Sources */,
+				C59E80CD1CB1FF5A0073FD05 /* StudentLocationListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
