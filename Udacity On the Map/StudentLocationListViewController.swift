@@ -75,14 +75,6 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
                                 let link = String(linkType)
                                 
                                 
-                                print(firstName)
-                                print(lastName)
-                                print(latitude)
-                                print(longitude)
-                                print(mapString)
-                                print(link)
-                                print(" " )
-                                
                                 let studentItem =
                                     
                                     StudentInfo(infoDict: ["firstName": firstName, "lastName": lastName, "latitude": latitude, "longitude":longitude, "mapString":mapString, "link": link])
@@ -98,7 +90,6 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
                     }
                     self.do_table_refresh();
                     
-                    print(jsonResult)
                     
                 } catch {
                     print("JSON Serialization failed")

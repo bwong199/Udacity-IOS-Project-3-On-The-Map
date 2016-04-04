@@ -19,7 +19,10 @@ class StudentLocationMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         mapView.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=100&order=-updatedAt")!)
@@ -102,13 +105,8 @@ class StudentLocationMapViewController: UIViewController, MKMapViewDelegate {
                     print("JSON Serialization failed")
                 }
             }
-            
         }
-        
         task.resume()
-        
-        
-        
     }
     
     func do_map_refresh()
@@ -121,58 +119,88 @@ class StudentLocationMapViewController: UIViewController, MKMapViewDelegate {
                 
                 let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitudeAnn, longitudeAnn)
                 
-                
                 let annotation = MKPointAnnotation()
                 
                 annotation.coordinate = location
                 annotation.title = x.firstName + " " + x.lastName
                 annotation.subtitle = x.link
                 
-                let btn = UIButton(type: .DetailDisclosure)
-                annotation.rightCalloutAccessoryView = btn
-                
                 self.mapView.addAnnotation(annotation)
-                
-
             }
-            
-            
             return
         })
     }
     
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-   
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        link = String((view.annotation!.subtitle!)!)
+        let reuseId = "pin"
         
-        print(link)
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
         
-        if let requestUrl = NSURL(string: link) {
-            UIApplication.sharedApplication().openURL(requestUrl)
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = UIColor.redColor()
+            pinView!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
         }
-        
-        
-       
+        else {
+            pinView!.annotation = annotation
+        }
+        return pinView
     }
     
-}
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let app = UIApplication.sharedApplication()
+            if let toOpen = view.annotation?.subtitle! {
+                app.openURL(NSURL(string: toOpen)!)
+            }
+        }
+    }
     
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+//        link = String((view.annotation!.subtitle!)!)
+//        
+//        print(link)
+//        
+//        if let requestUrl = NSURL(string: link) {
+//            UIApplication.sharedApplication().openURL(requestUrl)
+//        }
+    }
     
 
-    
-//    func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        
-//        print(annotationView.annotation?.subtitle)
-//        
-//        //        
-//        //        let location = view.annotation 
-//        //        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-//        //        location.mapItem().openInMapsWithLaunchOptions(launchOptions)
-//    }
-    
-    
-    
-    
+    @IBAction func logout(sender: AnyObject) {
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
+        request.HTTPMethod = "DELETE"
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            if error != nil { // Handle error…
+                return
+            }
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+        }
+        task.resume()
+    }
+
     
 }
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,7 @@
 		C5BDEA171CB2376100F5E084 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDEA161CB2376100F5E084 /* ItemCell.swift */; };
 		C5BDEA191CB2B67F00F5E084 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDEA181CB2B67F00F5E084 /* StudentInfo.swift */; };
 		C5BDEA1B1CB2D34E00F5E084 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BDEA1A1CB2D34E00F5E084 /* MapKit.framework */; };
+		C5BDEA1D1CB30CFB00F5E084 /* NavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDEA1C1CB30CFB00F5E084 /* NavigationBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C5BDEA161CB2376100F5E084 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		C5BDEA181CB2B67F00F5E084 /* StudentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		C5BDEA1A1CB2D34E00F5E084 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C5BDEA1C1CB30CFB00F5E084 /* NavigationBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				C59E80BA1CB069F00073FD05 /* AppDelegate.swift */,
 				C59E80BC1CB069F00073FD05 /* ViewController.swift */,
+				C5BDEA1C1CB30CFB00F5E084 /* NavigationBarController.swift */,
 				C59E80CC1CB1FF5A0073FD05 /* StudentLocationListViewController.swift */,
 				C59E80CE1CB206070073FD05 /* StudentLocationMapViewController.swift */,
 				C5BDEA161CB2376100F5E084 /* ItemCell.swift */,
@@ -155,6 +158,7 @@
 				C59E80BD1CB069F00073FD05 /* ViewController.swift in Sources */,
 				C59E80BB1CB069F00073FD05 /* AppDelegate.swift in Sources */,
 				C59E80CF1CB206070073FD05 /* StudentLocationMapViewController.swift in Sources */,
+				C5BDEA1D1CB30CFB00F5E084 /* NavigationBarController.swift in Sources */,
 				C5BDEA191CB2B67F00F5E084 /* StudentInfo.swift in Sources */,
 				C59E80CD1CB1FF5A0073FD05 /* StudentLocationListViewController.swift in Sources */,
 				C5BDEA171CB2376100F5E084 /* ItemCell.swift in Sources */,
