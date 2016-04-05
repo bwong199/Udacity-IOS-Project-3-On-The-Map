@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TY7-l3-hRP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1717" y="-23"/>
+            <point key="canvasLocation" x="-1839" y="-309"/>
         </scene>
         <!--List-->
         <scene sceneID="ctu-V3-hg5">
@@ -96,12 +96,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5lK-Up-oqY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5lK-Up-oqY">
                                 <rect key="frame" x="0.0" y="83" width="600" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="yn5-Ll-yrV" customClass="ItemCell" customModule="Udacity_On_the_Map" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="53"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yn5-Ll-yrV" id="Hm7-8m-Pgj">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
@@ -249,6 +249,11 @@
                                     <constraint firstAttribute="height" constant="30" id="dg6-Wu-9Ud"/>
                                 </constraints>
                                 <state key="normal" title="Find on the Map"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="findLocation:" destination="TY7-l3-hRP" eventType="touchUpInside" id="HQ1-Ib-BfP"/>
                                 </connections>
@@ -274,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gf-TL-lG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="-1005"/>
+            <point key="canvasLocation" x="-590" y="-797"/>
         </scene>
         <!--Add Link View Controller-->
         <scene sceneID="xpS-hY-HpP">
@@ -291,16 +296,57 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c5l-3g-EPY">
                                 <rect key="frame" x="0.0" y="158" width="600" height="442"/>
                             </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Link" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mde-SN-dK1">
+                                <rect key="frame" x="20" y="70" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuB-Dr-d4x">
+                                <rect key="frame" x="532" y="20" width="48" height="30"/>
+                                <state key="normal">
+                                    <string key="title" base64-UTF8="YES">
+EENhbmNlbA
+</string>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="PMD-v0-BR3" eventType="touchUpInside" id="7ke-C7-qSi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gc-tB-jS0">
+                                <rect key="frame" x="255" y="518" width="90" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="QB1-Vn-1Ol"/>
+                                </constraints>
+                                <state key="normal" title="Submit"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitLink:" destination="PMD-v0-BR3" eventType="touchUpInside" id="AgW-C9-DZP"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="c5l-3g-EPY" secondAttribute="trailing" id="2PT-Lw-OFz"/>
                             <constraint firstItem="c5l-3g-EPY" firstAttribute="top" secondItem="aaD-Ii-aye" secondAttribute="bottom" constant="138" id="9MN-Lk-36m"/>
+                            <constraint firstItem="Mde-SN-dK1" firstAttribute="trailing" secondItem="MuB-Dr-d4x" secondAttribute="trailing" id="9Wv-dN-uei"/>
+                            <constraint firstItem="Mde-SN-dK1" firstAttribute="top" secondItem="MuB-Dr-d4x" secondAttribute="bottom" constant="20" id="DP1-Xg-xwf"/>
+                            <constraint firstItem="Mde-SN-dK1" firstAttribute="centerX" secondItem="c5l-3g-EPY" secondAttribute="centerX" id="H9r-hi-XyK"/>
+                            <constraint firstItem="N78-gz-wyj" firstAttribute="top" secondItem="8gc-tB-jS0" secondAttribute="bottom" constant="52" id="Q1Z-sT-nJZ"/>
                             <constraint firstItem="c5l-3g-EPY" firstAttribute="leading" secondItem="JzC-g1-jd5" secondAttribute="leading" id="Uck-fy-jr9"/>
+                            <constraint firstItem="8gc-tB-jS0" firstAttribute="centerX" secondItem="c5l-3g-EPY" secondAttribute="centerX" id="dAp-MG-aLV"/>
+                            <constraint firstItem="Mde-SN-dK1" firstAttribute="leading" secondItem="JzC-g1-jd5" secondAttribute="leadingMargin" id="iJc-1x-9wi"/>
+                            <constraint firstItem="c5l-3g-EPY" firstAttribute="top" secondItem="Mde-SN-dK1" secondAttribute="bottom" constant="58" id="jr0-hh-ly1"/>
                             <constraint firstItem="c5l-3g-EPY" firstAttribute="bottom" secondItem="N78-gz-wyj" secondAttribute="top" id="laY-2c-pYB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="linkTextField" destination="Mde-SN-dK1" id="Ob2-pA-VN3"/>
                         <outlet property="mapView" destination="c5l-3g-EPY" id="uBq-yd-MfL"/>
                     </connections>
                 </viewController>

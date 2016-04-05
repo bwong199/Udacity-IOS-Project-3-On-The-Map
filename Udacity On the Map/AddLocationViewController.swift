@@ -27,6 +27,9 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func findLocation(sender: AnyObject) {
         
         let address = locationTextField.text as String?
+        
+        GlobalVariables.mapString = address!
+        
         let geocoder = CLGeocoder()
         
         if let addressExist = address {
@@ -41,6 +44,10 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                     
                     self.latitude = coordinates.latitude
                     self.longitude = coordinates.longitude
+                    
+                    GlobalVariables.latitude = coordinates.latitude
+                    GlobalVariables.longitude = coordinates.longitude
+
                     
                     NSOperationQueue.mainQueue().addOperationWithBlock {
                         self.performSegueWithIdentifier("toAddLinkSegue", sender: nil)
