@@ -20,6 +20,8 @@ class StudentLocationMapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         
         mapView.delegate = self
         

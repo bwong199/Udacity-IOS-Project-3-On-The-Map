@@ -15,6 +15,7 @@ struct StudentInfo {
     var longitude = ""
     var mapString = ""
     var link = ""
+//    var uniqueKey = "" 
     
     init(infoDict: Dictionary<String, String>){
         self.firstName = (infoDict["firstName"])!
@@ -23,6 +24,7 @@ struct StudentInfo {
         self.longitude = infoDict["longitude"]!
         self.mapString = infoDict["mapString"]!
         self.link = infoDict["link"]!
+//        self.uniqueKey = infoDict["uniqueKey"]!
     }
     
 }

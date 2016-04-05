@@ -14,6 +14,10 @@ class NavigationBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+
+        
+        
         
     }
     @IBAction func logout(sender: AnyObject) {
@@ -45,7 +49,38 @@ class NavigationBarController: UITabBarController {
     
     
     @IBAction func addLocation(sender: AnyObject) {
-        00
+        
+        
+//        "https://api.parse.com/1/classes/StudentLocation?limit=100&order=-updatedAt"
+//        
+//        let urlString = "https://api.parse.com/1/classes/StudentLocation?limit=100&order=-updatedAt"
+//        let url = NSURL(string: urlString)
+//        print(url)
+//        let request = NSMutableURLRequest(URL: url!)
+//        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+//        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+//        print(request)
+//        let session = NSURLSession.sharedSession()
+//        let task = session.dataTaskWithRequest(request) { data, response, error in
+//            if error != nil { /* Handle error */ return }
+//            
+//            if let data = data {
+//                
+//                let responseString = String(NSString(data: data, encoding: NSUTF8StringEncoding))
+//                
+//                // if link exists, edit link
+//                if responseString.containsString(GlobalVariables.uniqueKey){
+//                    print("link exists")
+//                } else {
+//                    print("link doesn't exist")
+//                }
+//                
+//            }
+//            
+//        }
+//        task.resume()
+        
+        
         NSOperationQueue.mainQueue().addOperationWithBlock {
             self.performSegueWithIdentifier("addLocationSegue", sender: nil)
         }

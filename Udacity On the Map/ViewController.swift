@@ -52,16 +52,28 @@ class ViewController: UIViewController {
             let stringData = String(NSString(data: newData, encoding: NSUTF8StringEncoding)!)
             
             
-            //            print(stringData)
+            //                        print(stringData)
             //
             if let data = stringData.dataUsingEncoding(NSUTF8StringEncoding) {
                 do {
                     let json =   try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String:AnyObject]
                     
-                    print(json)
+                    if let responseMessage = json["status"] as? NSObject {
+                        print(json["error"]!)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            let alertController = UIAlertController(title: nil, message:
+                                String(json["error"]!) , preferredStyle: UIAlertControllerStyle.Alert)
+                            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                            
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                        })
+                    }
                     
+                    // allow access if account is fetched
                     if let item = json["account"] as? NSObject {
-                        print(item.valueForKey("key"))
+                        //                        print(item.valueForKey("key"))
+                        
+                        GlobalVariables.uniqueKey = String(item.valueForKey("key")!)
                         
                         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/users/" + String(item.valueForKey("key")!))!)
                         let session = NSURLSession.sharedSession()
@@ -70,17 +82,21 @@ class ViewController: UIViewController {
                                 return
                             }
                             let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
-                            //                            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+//                            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
                             
                             do {
                                 let json =   try NSJSONSerialization.JSONObjectWithData(newData, options: []) as! [String:AnyObject]
-                                print(json)
+                                //                                print(json)
                                 if let item = json["user"] as? NSObject {
                                     print(item.valueForKey("first_name"))
                                     print(item.valueForKey("last_name"))
                                     
-                                    GlobalVariables.firstName = String(item.valueForKey("first_name"))
-                                    GlobalVariables.lastName = String(item.valueForKey("last_name"))
+                                    GlobalVariables.firstName = String(item.valueForKey("first_name")!)
+                                    GlobalVariables.lastName = String(item.valueForKey("last_name")!)
+                                    
+                                    NSOperationQueue.mainQueue().addOperationWithBlock {
+                                        self.performSegueWithIdentifier("toMapSegue", sender: nil)
+                                    }
                                     
                                 }
                                 
@@ -96,43 +112,38 @@ class ViewController: UIViewController {
                         }
                         task.resume()
                         
-                        //                        if let key = item["key"] as? String {
-                        //                            print(key)
-                        //                        }
-                        
-                        
                     }
                 } catch let error as NSError {
                     print(error)
                 }
             }
+            //
+            //                        if(stringData.containsString("error") &&  stringData.containsString("400")){
+            //                            print("Error")
+            //                            dispatch_async(dispatch_get_main_queue(), {
+            //                                let alertController = UIAlertController(title: nil, message:
+            //                                    "Missing Email or Password", preferredStyle: UIAlertControllerStyle.Alert)
+            //                                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            //
+            //                                self.presentViewController(alertController, animated: true, completion: nil)
+            //                            })
+            //                        } else if (stringData.containsString("error") &&  stringData.containsString("403")){
+            //                            print("Error")
+            //                            dispatch_async(dispatch_get_main_queue(), {
+            //                                let alertController = UIAlertController(title: nil, message:
+            //                                    "Invalid Email or Password", preferredStyle: UIAlertControllerStyle.Alert)
+            //                                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            //
+            //                                self.presentViewController(alertController, animated: true, completion: nil)
+            //                            })
+            //                        } else {
+            //                            print("No error")
+            //
+            //                            NSOperationQueue.mainQueue().addOperationWithBlock {
+            //                                self.performSegueWithIdentifier("toMapSegue", sender: nil)
+            //                            }
+            //                        }
             
-                        if(stringData.containsString("error") &&  stringData.containsString("400")){
-                            print("Error")
-                            dispatch_async(dispatch_get_main_queue(), {
-                                let alertController = UIAlertController(title: nil, message:
-                                    "Missing Email or Password", preferredStyle: UIAlertControllerStyle.Alert)
-                                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-                                self.presentViewController(alertController, animated: true, completion: nil)
-                            })
-                        } else if (stringData.containsString("error") &&  stringData.containsString("403")){
-                            print("Error")
-                            dispatch_async(dispatch_get_main_queue(), {
-                                let alertController = UIAlertController(title: nil, message:
-                                    "Invalid Email or Password", preferredStyle: UIAlertControllerStyle.Alert)
-                                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-                                self.presentViewController(alertController, animated: true, completion: nil)
-                            })
-                        } else {
-                            print("No error")
-            
-                            NSOperationQueue.mainQueue().addOperationWithBlock {
-                                self.performSegueWithIdentifier("toMapSegue", sender: nil)
-                            }
-                        }
-                        
             
             
         }

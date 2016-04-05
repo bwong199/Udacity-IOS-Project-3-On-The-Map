@@ -15,4 +15,5 @@ struct GlobalVariables {
     static var mediaURL : String = ""
     static var latitude : Double = 0
     static var longitude : Double = 0
+    static var uniqueKey : String = ""
 }

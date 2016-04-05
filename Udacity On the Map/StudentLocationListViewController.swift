@@ -72,6 +72,8 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
                                 
                                 let linkType = item["mediaURL"] as! String
                                 
+//                                print(item["uniqueKey"] as! String)
+                                
                                 let link = String(linkType)
                                 
                                 
@@ -86,6 +88,8 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
                             }
                             
                         }
+                        
+//                        print(jsonResult)
                         
                     }
                     self.do_table_refresh();
