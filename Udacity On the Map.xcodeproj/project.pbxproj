@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C53BD9731CB31AB000899D3E /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53BD9721CB31AB000899D3E /* AddLocationViewController.swift */; };
+		C53BD9751CB352D900899D3E /* AddLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53BD9741CB352D900899D3E /* AddLinkViewController.swift */; };
 		C59E80BB1CB069F00073FD05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E80BA1CB069F00073FD05 /* AppDelegate.swift */; };
 		C59E80BD1CB069F00073FD05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E80BC1CB069F00073FD05 /* ViewController.swift */; };
 		C59E80C01CB069F00073FD05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59E80BE1CB069F00073FD05 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C53BD9721CB31AB000899D3E /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		C53BD9741CB352D900899D3E /* AddLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLinkViewController.swift; sourceTree = "<group>"; };
 		C59E80B71CB069F00073FD05 /* Udacity On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Udacity On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C59E80BA1CB069F00073FD05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C59E80BC1CB069F00073FD05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				C59E80BA1CB069F00073FD05 /* AppDelegate.swift */,
 				C59E80BC1CB069F00073FD05 /* ViewController.swift */,
 				C5BDEA1C1CB30CFB00F5E084 /* NavigationBarController.swift */,
+				C53BD9721CB31AB000899D3E /* AddLocationViewController.swift */,
+				C53BD9741CB352D900899D3E /* AddLinkViewController.swift */,
 				C59E80CC1CB1FF5A0073FD05 /* StudentLocationListViewController.swift */,
 				C59E80CE1CB206070073FD05 /* StudentLocationMapViewController.swift */,
 				C5BDEA161CB2376100F5E084 /* ItemCell.swift */,
@@ -158,6 +164,8 @@
 				C59E80BD1CB069F00073FD05 /* ViewController.swift in Sources */,
 				C59E80BB1CB069F00073FD05 /* AppDelegate.swift in Sources */,
 				C59E80CF1CB206070073FD05 /* StudentLocationMapViewController.swift in Sources */,
+				C53BD9751CB352D900899D3E /* AddLinkViewController.swift in Sources */,
+				C53BD9731CB31AB000899D3E /* AddLocationViewController.swift in Sources */,
 				C5BDEA1D1CB30CFB00F5E084 /* NavigationBarController.swift in Sources */,
 				C5BDEA191CB2B67F00F5E084 /* StudentInfo.swift in Sources */,
 				C59E80CD1CB1FF5A0073FD05 /* StudentLocationListViewController.swift in Sources */,
