@@ -56,9 +56,8 @@ class AddLinkViewController: UIViewController , UITextFieldDelegate {
     
     
     @IBAction func cancelButton(sender: AnyObject) {
-        if((self.presentingViewController) != nil){
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
+
+        self.performSegueWithIdentifier("toMapFromLinkAdd", sender: nil)
     }
 
     @IBAction func submitLink(sender: AnyObject) {

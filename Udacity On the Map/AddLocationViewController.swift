@@ -36,6 +36,13 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
             geocoder.geocodeAddressString(addressExist, completionHandler: {(placemarks, error) -> Void in
                 if((error) != nil){
                     print("Error", error)
+                    // Alert error if result is nil
+                    let alertController = UIAlertController(title: nil, message:
+                        "Cannot Find Location. Please Try Again!" , preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+
                 }
                 if let placemark = placemarks?.first {
                     let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
@@ -77,10 +84,11 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func cancelBtn(sender: AnyObject) {
-        if((self.presentingViewController) != nil){
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
+
+
+    @IBAction func cancelButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("toMapfromLocationAdd", sender: nil)
+        
     }
 
 }

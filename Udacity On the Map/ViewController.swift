@@ -124,34 +124,6 @@ class ViewController: UIViewController {
                     print(error)
                 }
             }
-            //
-            //                        if(stringData.containsString("error") &&  stringData.containsString("400")){
-            //                            print("Error")
-            //                            dispatch_async(dispatch_get_main_queue(), {
-            //                                let alertController = UIAlertController(title: nil, message:
-            //                                    "Missing Email or Password", preferredStyle: UIAlertControllerStyle.Alert)
-            //                                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            //
-            //                                self.presentViewController(alertController, animated: true, completion: nil)
-            //                            })
-            //                        } else if (stringData.containsString("error") &&  stringData.containsString("403")){
-            //                            print("Error")
-            //                            dispatch_async(dispatch_get_main_queue(), {
-            //                                let alertController = UIAlertController(title: nil, message:
-            //                                    "Invalid Email or Password", preferredStyle: UIAlertControllerStyle.Alert)
-            //                                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            //
-            //                                self.presentViewController(alertController, animated: true, completion: nil)
-            //                            })
-            //                        } else {
-            //                            print("No error")
-            //
-            //                            NSOperationQueue.mainQueue().addOperationWithBlock {
-            //                                self.performSegueWithIdentifier("toMapSegue", sender: nil)
-            //                            }
-            //                        }
-            
-            
             
         }
         task.resume()
@@ -163,8 +135,7 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "toMapSegue"){
-            //            let playViewController = segue.destinationViewController as! StudentLocationViewController
-            //            playViewController.receivedAudio  = recordedAudio
+
         }
     }
     

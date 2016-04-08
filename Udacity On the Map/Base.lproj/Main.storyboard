@@ -100,7 +100,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" rowHeight="65" id="yn5-Ll-yrV" customClass="ItemCell" customModule="Udacity_On_the_Map" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="65"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yn5-Ll-yrV" id="Hm7-8m-Pgj">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJF-UX-jhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="659" y="-153"/>
+            <point key="canvasLocation" x="-517" y="29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Opp-Sh-O4F">
@@ -210,7 +210,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5NT-DL-Ul1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1203" y="68"/>
+            <point key="canvasLocation" x="-1125" y="500"/>
         </scene>
         <!--Add Location View Controller-->
         <scene sceneID="lQI-3B-wi0">
@@ -224,7 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJ8-Xc-Hdv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJ8-Xc-Hdv">
                                 <rect key="frame" x="163" y="281" width="274" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="274" id="Hlf-ZW-0YY"/>
@@ -233,7 +233,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2My-G2-W24">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2My-G2-W24">
                                 <rect key="frame" x="163" y="333" width="274" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -255,8 +255,11 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJq-Wq-IPM">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJq-Wq-IPM">
                                 <rect key="frame" x="532" y="20" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hkv-Am-hDM"/>
+                                </constraints>
                                 <state key="normal">
                                     <string key="title" base64-UTF8="YES">
 EENhbmNlbA
@@ -264,7 +267,7 @@ EENhbmNlbA
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelBtn:" destination="TY7-l3-hRP" eventType="touchUpInside" id="88s-Bw-yRe"/>
+                                    <action selector="cancelButton:" destination="TY7-l3-hRP" eventType="touchUpInside" id="1jS-xk-vZm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -275,20 +278,24 @@ EENhbmNlbA
                             <constraint firstItem="VJ8-Xc-Hdv" firstAttribute="top" secondItem="Nm3-E5-R1L" secondAttribute="bottom" constant="25" id="R5n-GE-2ES"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Nm3-E5-R1L" secondAttribute="trailing" constant="29" id="RVD-Y8-FGu"/>
                             <constraint firstItem="VJ8-Xc-Hdv" firstAttribute="leading" secondItem="2My-G2-W24" secondAttribute="leading" id="S5q-Hf-eCg"/>
+                            <constraint firstItem="qJq-Wq-IPM" firstAttribute="trailing" secondItem="8aF-hL-erw" secondAttribute="trailingMargin" id="dBu-uV-EiD"/>
                             <constraint firstItem="a1N-Hx-jd8" firstAttribute="top" secondItem="2My-G2-W24" secondAttribute="bottom" constant="188" id="dzt-Ek-Sha"/>
+                            <constraint firstItem="qJq-Wq-IPM" firstAttribute="top" secondItem="5pf-Ry-kSw" secondAttribute="bottom" id="ek2-zN-scF"/>
                             <constraint firstItem="2My-G2-W24" firstAttribute="top" secondItem="VJ8-Xc-Hdv" secondAttribute="bottom" constant="22" id="hRY-ZD-R4A"/>
                             <constraint firstItem="Nm3-E5-R1L" firstAttribute="leading" secondItem="8aF-hL-erw" secondAttribute="leadingMargin" constant="5" id="nd4-fw-NDj"/>
                             <constraint firstItem="VJ8-Xc-Hdv" firstAttribute="centerX" secondItem="8aF-hL-erw" secondAttribute="centerX" id="vH8-Ws-bwe"/>
+                            <constraint firstItem="Nm3-E5-R1L" firstAttribute="top" secondItem="qJq-Wq-IPM" secondAttribute="bottom" constant="33" id="w28-DJ-73U"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="locationTextField" destination="VJ8-Xc-Hdv" id="Ai6-cA-CdK"/>
                         <segue destination="PMD-v0-BR3" kind="show" identifier="toAddLinkSegue" id="76Z-QL-2xc"/>
+                        <segue destination="Cqg-bf-Jjq" kind="show" identifier="toMapfromLocationAdd" id="2nc-bO-85I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gf-TL-lG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-926" y="-775"/>
+            <point key="canvasLocation" x="-828" y="-565"/>
         </scene>
         <!--Add Link View Controller-->
         <scene sceneID="xpS-hY-HpP">
@@ -358,11 +365,12 @@ EENhbmNlbA
                         <outlet property="linkTextField" destination="Mde-SN-dK1" id="Ob2-pA-VN3"/>
                         <outlet property="mapView" destination="c5l-3g-EPY" id="uBq-yd-MfL"/>
                         <segue destination="GIW-Et-CPb" kind="show" identifier="postLinkSegue" id="Q2B-pC-Ys9"/>
+                        <segue destination="Cqg-bf-Jjq" kind="show" identifier="toMapFromLinkAdd" id="yC3-Ly-IMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQ6-Et-eYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="-821"/>
+            <point key="canvasLocation" x="81" y="-797"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="452-V5-2Co">
@@ -393,10 +401,11 @@ EENhbmNlbA
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0G-9L-EAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1048" y="-76"/>
+            <point key="canvasLocation" x="-1802" y="-335"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eCq-oY-V6c"/>
+        <segue reference="yC3-Ly-IMi"/>
+        <segue reference="Q2B-pC-Ys9"/>
     </inferredMetricsTieBreakers>
 </document>
