@@ -249,13 +249,13 @@
                                     <action selector="findLocation:" destination="TY7-l3-hRP" eventType="touchUpInside" id="HQ1-Ib-BfP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm3-E5-R1L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm3-E5-R1L">
                                 <rect key="frame" x="25" y="83" width="526" height="173"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJq-Wq-IPM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJq-Wq-IPM">
                                 <rect key="frame" x="532" y="20" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Hkv-Am-hDM"/>
@@ -270,6 +270,9 @@ EENhbmNlbA
                                     <action selector="cancelButton:" destination="TY7-l3-hRP" eventType="touchUpInside" id="1jS-xk-vZm"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-hS-ORL">
+                                <rect key="frame" x="270" y="245" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -282,12 +285,15 @@ EENhbmNlbA
                             <constraint firstItem="a1N-Hx-jd8" firstAttribute="top" secondItem="2My-G2-W24" secondAttribute="bottom" constant="188" id="dzt-Ek-Sha"/>
                             <constraint firstItem="qJq-Wq-IPM" firstAttribute="top" secondItem="5pf-Ry-kSw" secondAttribute="bottom" id="ek2-zN-scF"/>
                             <constraint firstItem="2My-G2-W24" firstAttribute="top" secondItem="VJ8-Xc-Hdv" secondAttribute="bottom" constant="22" id="hRY-ZD-R4A"/>
+                            <constraint firstItem="2My-G2-W24" firstAttribute="top" secondItem="KOb-hS-ORL" secondAttribute="bottom" constant="51" id="mll-qH-g7F"/>
                             <constraint firstItem="Nm3-E5-R1L" firstAttribute="leading" secondItem="8aF-hL-erw" secondAttribute="leadingMargin" constant="5" id="nd4-fw-NDj"/>
                             <constraint firstItem="VJ8-Xc-Hdv" firstAttribute="centerX" secondItem="8aF-hL-erw" secondAttribute="centerX" id="vH8-Ws-bwe"/>
                             <constraint firstItem="Nm3-E5-R1L" firstAttribute="top" secondItem="qJq-Wq-IPM" secondAttribute="bottom" constant="33" id="w28-DJ-73U"/>
+                            <constraint firstItem="KOb-hS-ORL" firstAttribute="centerX" secondItem="Nm3-E5-R1L" secondAttribute="centerX" id="xZe-Tc-g5M"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="KOb-hS-ORL" id="p4X-Uq-5o1"/>
                         <outlet property="locationTextField" destination="VJ8-Xc-Hdv" id="Ai6-cA-CdK"/>
                         <segue destination="PMD-v0-BR3" kind="show" identifier="toAddLinkSegue" id="76Z-QL-2xc"/>
                         <segue destination="Cqg-bf-Jjq" kind="show" identifier="toMapfromLocationAdd" id="2nc-bO-85I"/>
@@ -405,7 +411,7 @@ EENhbmNlbA
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yC3-Ly-IMi"/>
+        <segue reference="2nc-bO-85I"/>
         <segue reference="Q2B-pC-Ys9"/>
     </inferredMetricsTieBreakers>
 </document>

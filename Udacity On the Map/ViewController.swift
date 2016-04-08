@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var emailTextField: UITextField!
     
@@ -16,16 +16,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        subscribeToKeyboardNotifications()
         // Do any additional setup after loading the view, typically from a nib.
         
-   
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self 
     
-//        secondVC.delegate = self
-//        presentViewController(secondVC, animated: true, completion: nil)
         
-//        let viewController = UIApplication.sharedApplication().windows[0].rootViewController?.childViewControllers[1] 
-//        print(viewController)
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        subscribeToKeyboardNotifications()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -137,6 +141,48 @@ class ViewController: UIViewController {
         if (segue.identifier == "toMapSegue"){
 
         }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    
+    func subscribeToKeyboardNotifications(){
+        NSNotificationCenter.defaultCenter().addObserver(self,selector: "keyboardWillShow:" , name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,selector: "keyboardWillHide:" , name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeToKeyboardNotifications(){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+//                view.frame.origin.y += getKeyboardHeight(notification)
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        if passwordTextField.editing {
+            return keyboardSize.CGRectValue().height/4
+        } else {
+            return 0
+        }
+        
     }
     
 }

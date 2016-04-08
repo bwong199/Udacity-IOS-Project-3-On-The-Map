@@ -23,21 +23,12 @@ class AddLinkViewController: UIViewController , UITextFieldDelegate {
         
         self.linkTextField.delegate = self
         
-        //Testing Global variables
-        
-        //        print(GlobalVariables.firstName)
-        //        print(GlobalVariables.lastName)
-        //        print(GlobalVariables.latitude)
-        //        print(GlobalVariables.longitude)
-        //        print(GlobalVariables.mapString)
-        //        print(GlobalVariables.uniqueKey)
-        
         let latitudeAnn:CLLocationDegrees = self.latitude
         let longitudeAnn:CLLocationDegrees = self.longitude
         
         
-        let latDelta:CLLocationDegrees = 0.01
-        let lonDelta:CLLocationDegrees = 0.01
+        let latDelta:CLLocationDegrees = 0.1
+        let lonDelta:CLLocationDegrees = 0.1
         
         let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
         
@@ -52,6 +43,12 @@ class AddLinkViewController: UIViewController , UITextFieldDelegate {
         self.mapView.addAnnotation(annotation)
         
         mapView.setRegion(region, animated: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+       
+        
     }
     
     
@@ -106,4 +103,7 @@ class AddLinkViewController: UIViewController , UITextFieldDelegate {
         
         return true
     }
+    
+
+
 }
