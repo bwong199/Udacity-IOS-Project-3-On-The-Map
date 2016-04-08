@@ -6,134 +6,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Udacity On the Map/StudentLocationListViewController.swift"
-            timestampString = "481482124.447567"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Udacity_On_the_Map.StudentLocationListViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "Udacity On the Map"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/benwong/Desktop/IOS/Udacity%20On%20the%20Map/Udacity%20On%20the%20Map/StudentLocationListViewController.swift"
-                  timestampString = "481430410.108786"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "1618">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Udacity_On_the_Map.StudentLocationListViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "Udacity On the Map"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/benwong/Desktop/IOS/Udacity%20On%20the%20Map/Udacity%20On%20the%20Map/StudentLocationListViewController.swift"
-                  timestampString = "481430410.108987"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "2384">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Udacity On the Map/StudentLocationListViewController.swift"
-            timestampString = "481482124.447567"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Udacity On the Map/StudentLocationListViewController.swift"
-            timestampString = "481482124.447567"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Udacity On the Map/StudentLocationListViewController.swift"
-            timestampString = "481482124.447567"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Udacity On the Map/StudentLocationListViewController.swift"
-            timestampString = "481482124.447567"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Udacity On the Map/StudentLocationListViewController.swift"
-            timestampString = "481482124.447567"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -170,7 +42,7 @@
                   moduleName = "Udacity On the Map"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/benwong/Desktop/IOS/UdacityOntheMap/Udacity%20On%20the%20Map/AddLocationViewController.swift"
-                  timestampString = "481562431.899812"
+                  timestampString = "481838073.158077"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
@@ -185,7 +57,7 @@
                   moduleName = "Udacity On the Map"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/benwong/Desktop/IOS/UdacityOntheMap/Udacity%20On%20the%20Map/AddLocationViewController.swift"
-                  timestampString = "481562431.899984"
+                  timestampString = "481838073.158264"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
@@ -250,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Udacity On the Map/ViewController.swift"
-            timestampString = "481526202.044674"
+            timestampString = "481836940.360814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "loginButton(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Udacity On the Map/ViewController.swift"
-            timestampString = "481527296.353813"
+            timestampString = "481836940.360814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "loginButton(_:)"
             landmarkType = "5">
             <Locations>
@@ -282,11 +154,11 @@
                   moduleName = "Udacity On the Map"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/benwong/Desktop/IOS/UdacityOntheMap/Udacity%20On%20the%20Map/ViewController.swift"
-                  timestampString = "481562431.904004"
+                  timestampString = "481838073.162129"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
                   offsetFromSymbolStart = "912">
                </Location>
                <Location
@@ -297,11 +169,11 @@
                   moduleName = "Udacity On the Map"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/benwong/Desktop/IOS/UdacityOntheMap/Udacity%20On%20the%20Map/ViewController.swift"
-                  timestampString = "481562431.904176"
+                  timestampString = "481838073.162287"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
                   offsetFromSymbolStart = "1000">
                </Location>
             </Locations>
@@ -314,12 +186,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Udacity On the Map/ViewController.swift"
-            timestampString = "481558114.585942"
+            timestampString = "481836940.360814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "loginButton(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Udacity On the Map/StudentLocationMapViewController.swift"
+            timestampString = "481838072.063813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Udacity On the Map/StudentLocationMapViewController.swift"
+            timestampString = "481838072.063813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Udacity On the Map/FetchInfo.swift"
+            timestampString = "481837878.811175"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "fetchInfo(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Udacity On the Map/StudentLocationMapViewController.swift"
+            timestampString = "481838072.063813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

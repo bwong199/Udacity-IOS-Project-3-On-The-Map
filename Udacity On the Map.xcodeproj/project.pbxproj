@@ -21,6 +21,7 @@
 		C5BDEA191CB2B67F00F5E084 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDEA181CB2B67F00F5E084 /* StudentInfo.swift */; };
 		C5BDEA1B1CB2D34E00F5E084 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BDEA1A1CB2D34E00F5E084 /* MapKit.framework */; };
 		C5BDEA1D1CB30CFB00F5E084 /* NavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDEA1C1CB30CFB00F5E084 /* NavigationBarController.swift */; };
+		C5F1E6D11CB8133600E9AA3B /* FetchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1E6D01CB8133600E9AA3B /* FetchInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		C5BDEA181CB2B67F00F5E084 /* StudentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		C5BDEA1A1CB2D34E00F5E084 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C5BDEA1C1CB30CFB00F5E084 /* NavigationBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
+		C5F1E6D01CB8133600E9AA3B /* FetchInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				C53BD9741CB352D900899D3E /* AddLinkViewController.swift */,
 				C59E80CC1CB1FF5A0073FD05 /* StudentLocationListViewController.swift */,
 				C59E80CE1CB206070073FD05 /* StudentLocationMapViewController.swift */,
+				C5F1E6D01CB8133600E9AA3B /* FetchInfo.swift */,
 				C5BDEA161CB2376100F5E084 /* ItemCell.swift */,
 				C5BDEA181CB2B67F00F5E084 /* StudentInfo.swift */,
 				C59E80BE1CB069F00073FD05 /* Main.storyboard */,
@@ -166,6 +169,7 @@
 			files = (
 				C59E80BD1CB069F00073FD05 /* ViewController.swift in Sources */,
 				C59E80BB1CB069F00073FD05 /* AppDelegate.swift in Sources */,
+				C5F1E6D11CB8133600E9AA3B /* FetchInfo.swift in Sources */,
 				C59E80CF1CB206070073FD05 /* StudentLocationMapViewController.swift in Sources */,
 				C53BD9751CB352D900899D3E /* AddLinkViewController.swift in Sources */,
 				C53BD9731CB31AB000899D3E /* AddLocationViewController.swift in Sources */,

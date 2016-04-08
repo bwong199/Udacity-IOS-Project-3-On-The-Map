@@ -18,6 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+   
+    
+//        secondVC.delegate = self
+//        presentViewController(secondVC, animated: true, completion: nil)
+        
+//        let viewController = UIApplication.sharedApplication().windows[0].rootViewController?.childViewControllers[1] 
+//        print(viewController)
         
     }
     

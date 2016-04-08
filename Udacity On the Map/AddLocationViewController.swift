@@ -77,5 +77,10 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    @IBAction func cancelBtn(sender: AnyObject) {
+        if((self.presentingViewController) != nil){
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
+    }
 
 }

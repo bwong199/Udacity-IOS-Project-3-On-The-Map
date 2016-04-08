@@ -16,4 +16,13 @@ struct GlobalVariables {
     static var latitude : Double = 0
     static var longitude : Double = 0
     static var uniqueKey : String = ""
+    
+    static var studentInformationList : [StudentInfo] = []
+
+    
+    // prevent instantiation of this class
+    private init()
+    {
+        // initializer code here
+    }
 }

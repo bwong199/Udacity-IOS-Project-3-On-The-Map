@@ -40,11 +40,15 @@ class NavigationBarController: UITabBarController {
             let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                self.performSegueWithIdentifier("logoutSegue", sender: nil)
-            }
+//            NSOperationQueue.mainQueue().addOperationWithBlock {
+//                self.performSegueWithIdentifier("logoutSegue", sender: nil)
+//            }
         }
         task.resume()
+        
+
+        
+        self.view.window!.rootViewController?.dismissViewControllerAnimated(false, completion: nil)
     }
     
     
