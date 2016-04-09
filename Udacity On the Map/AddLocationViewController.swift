@@ -102,7 +102,11 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func cancelButton(sender: AnyObject) {
-        self.performSegueWithIdentifier("toMapfromLocationAdd", sender: nil)
+//        self.performSegueWithIdentifier("toMapfromLocationAdd", sender: nil)
+        
+        let navigationViewController = self.navigationController?.viewControllers[0]
+        
+        self.navigationController?.popToViewController(navigationViewController!, animated: true)
         
     }
     

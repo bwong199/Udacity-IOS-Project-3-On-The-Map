@@ -32,9 +32,19 @@ class StudentLocationListViewController: UIViewController, UITableViewDataSource
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.tableView.reloadData()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        FetchInfo().fetchInfo(){(success, error, results) in
+            if success {
+                self.do_table_refresh()
+            } else {
+                
+            }
+        }
     }
+    
+
     
     func do_table_refresh()
     {

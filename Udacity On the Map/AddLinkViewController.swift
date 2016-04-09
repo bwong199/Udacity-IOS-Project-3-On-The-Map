@@ -47,32 +47,33 @@ class AddLinkViewController: UIViewController , UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-       
+        
         
     }
     
     
     @IBAction func cancelButton(sender: AnyObject) {
-
-        self.performSegueWithIdentifier("toMapFromLinkAdd", sender: nil)
+        
+        //        self.performSegueWithIdentifier("toMapFromLinkAdd", sender: nil)
+        
+        let navigationViewController = self.navigationController?.viewControllers[0]
+        
+        self.navigationController?.popToViewController(navigationViewController!, animated: true)
     }
-
+    
     @IBAction func submitLink(sender: AnyObject) {
         
         GlobalVariables.mediaURL = linkTextField.text!
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
-        request.HTTPMethod = "POST"
-        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = "{\"uniqueKey\": \"\(GlobalVariables.uniqueKey)\", \"firstName\": \"\(GlobalVariables.firstName)\", \"lastName\": \"\(GlobalVariables.lastName)\",\"mapString\": \"\(GlobalVariables.mapString)\", \"mediaURL\": \"\(GlobalVariables.mediaURL)\",\"latitude\": \(GlobalVariables.latitude), \"longitude\": \(GlobalVariables.longitude)}".dataUsingEncoding(NSUTF8StringEncoding)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            if error != nil { // Handle error…
-                return
+        
+        FetchInfo().submitLink(){(success, error, results) in
+            if success {
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    self.performSegueWithIdentifier("postLinkSegue", sender: nil)
                     
-                    // Show alert message if posting failed
+                }
+                
+                if (error != nil) {
                     dispatch_async(dispatch_get_main_queue(), {
                         let alertController = UIAlertController(title: nil, message:
                             "Posting Failed" , preferredStyle: UIAlertControllerStyle.Alert)
@@ -80,18 +81,11 @@ class AddLinkViewController: UIViewController , UITextFieldDelegate {
                         
                         self.presentViewController(alertController, animated: true, completion: nil)
                     })
-            }
-            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
-            
-            let postResponse = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            
-            if postResponse.containsString("createdAt"){
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    self.performSegueWithIdentifier("postLinkSegue", sender: nil)
                 }
+                
             }
         }
-        task.resume()
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -104,6 +98,6 @@ class AddLinkViewController: UIViewController , UITextFieldDelegate {
         return true
     }
     
-
-
+    
+    
 }

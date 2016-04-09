@@ -37,6 +37,7 @@ class StudentLocationMapViewController: UIViewController, MKMapViewDelegate {
         
     }
     
+    
     func do_map_refresh()
     {
         dispatch_async(dispatch_get_main_queue(), {

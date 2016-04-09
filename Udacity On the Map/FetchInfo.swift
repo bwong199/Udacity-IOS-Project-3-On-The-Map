@@ -27,7 +27,7 @@ class FetchInfo {
                         "Failed to Download Data", preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                     
-//                    self.presentViewController(alertController, animated: true, completion: nil)
+                    //                    self.presentViewController(alertController, animated: true, completion: nil)
                 })
                 
             }
@@ -65,14 +65,14 @@ class FetchInfo {
                                 let studentItem =
                                     
                                     StudentInfo(infoDict: ["firstName": firstName, "lastName": lastName, "latitude": latitude, "longitude":longitude, "mapString":mapString, "link": link])
- 
+                                
                                 GlobalVariables.studentInformationList.append(studentItem)
                             }
                         }
                         
                         completionHandler(success: true, error: nil, results: GlobalVariables.studentInformationList)
                     }
-//                    self.do_map_refresh();
+                    //                    self.do_map_refresh();
                     
                     //                    print(jsonResult)
                     
@@ -82,8 +82,8 @@ class FetchInfo {
             }
         }
         task.resume()
-
-
+        
+        
     }
     
     func login(email: String, password: String, completionHandler:(success: Bool, error: String?, results: String?) -> Void){
@@ -144,9 +144,9 @@ class FetchInfo {
                                     GlobalVariables.lastName = String(item.valueForKey("last_name")!)
                                     
                                     completionHandler(success: true, error: nil, results: String(item))
-            
+                                    
                                 }
- 
+                                
                             } catch let error as NSError {
                                 print(error)
                             }
@@ -163,7 +163,42 @@ class FetchInfo {
         task.resume()
     }
     
-    func submitLink(){
-        
+    func submitLink(completionHandler:(success: Bool, error: String?, results: String?) -> Void){
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
+        request.HTTPMethod = "POST"
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = "{\"uniqueKey\": \"\(GlobalVariables.uniqueKey)\", \"firstName\": \"\(GlobalVariables.firstName)\", \"lastName\": \"\(GlobalVariables.lastName)\",\"mapString\": \"\(GlobalVariables.mapString)\", \"mediaURL\": \"\(GlobalVariables.mediaURL)\",\"latitude\": \(GlobalVariables.latitude), \"longitude\": \(GlobalVariables.longitude)}".dataUsingEncoding(NSUTF8StringEncoding)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            if error != nil { // Handle error…
+                completionHandler(success: false, error: nil, results: nil)
+                return
+                    
+//                    // Show alert message if posting failed
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        let alertController = UIAlertController(title: nil, message:
+//                            "Posting Failed" , preferredStyle: UIAlertControllerStyle.Alert)
+//                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+//                        
+//                        self.presentViewController(alertController, animated: true, completion: nil)
+//                    })
+    
+            }
+            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            
+            let postResponse = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            
+            if postResponse.containsString("createdAt"){
+//                NSOperationQueue.mainQueue().addOperationWithBlock {
+//                    self.performSegueWithIdentifier("postLinkSegue", sender: nil)
+//                }
+                
+                completionHandler(success: true, error: nil, results: nil)
+
+            }
+        }
+        task.resume()
     }
 }
