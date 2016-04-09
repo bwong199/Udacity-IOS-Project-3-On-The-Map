@@ -21,15 +21,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self 
-    
+        self.passwordTextField.delegate = self
+        
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         subscribeToKeyboardNotifications()
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,104 +42,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print(self.emailTextField.text)
         print(self.passwordTextField.text)
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = "{\"udacity\": {\"username\": \"\(self.emailTextField.text!)\", \"password\": \"\(self.passwordTextField.text!)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            
-            
-            
-            if error != nil { // Handle error…
-                return
+        FetchInfo().login(emailTextField.text!, password: passwordTextField.text!){(success, error, results) in
+            if success {
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    self.performSegueWithIdentifier("toMapSegue", sender: nil)
+                }
+                
             }
             
-            
-            
-            
-            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
-            let stringData = String(NSString(data: newData, encoding: NSUTF8StringEncoding)!)
-            
-            
-            //                        print(stringData)
-            //
-            if let data = stringData.dataUsingEncoding(NSUTF8StringEncoding) {
-                do {
-                    let json =   try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String:AnyObject]
+            if (error != nil) {
+                dispatch_async(dispatch_get_main_queue(), {
+                    let alertController = UIAlertController(title: nil, message:
+                        String(error!) , preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                     
-                    if let responseMessage = json["status"] as? NSObject {
-                        print(json["error"]!)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            let alertController = UIAlertController(title: nil, message:
-                                String(json["error"]!) , preferredStyle: UIAlertControllerStyle.Alert)
-                            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                            
-                            self.presentViewController(alertController, animated: true, completion: nil)
-                        })
-                    }
-                    
-                    // allow access if account is fetched
-                    if let item = json["account"] as? NSObject {
-                        //                        print(item.valueForKey("key"))
-                        
-                        GlobalVariables.uniqueKey = String(item.valueForKey("key")!)
-                        
-                        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/users/" + String(item.valueForKey("key")!))!)
-                        let session = NSURLSession.sharedSession()
-                        let task = session.dataTaskWithRequest(request) { data, response, error in
-                            if error != nil { // Handle error...
-                                return
-                            }
-                            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
-//                            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
-                            
-                            do {
-                                let json =   try NSJSONSerialization.JSONObjectWithData(newData, options: []) as! [String:AnyObject]
-                                //                                print(json)
-                                if let item = json["user"] as? NSObject {
-                                    print(item.valueForKey("first_name"))
-                                    print(item.valueForKey("last_name"))
-                                    
-                                    GlobalVariables.firstName = String(item.valueForKey("first_name")!)
-                                    GlobalVariables.lastName = String(item.valueForKey("last_name")!)
-                                    
-                                    NSOperationQueue.mainQueue().addOperationWithBlock {
-                                        self.performSegueWithIdentifier("toMapSegue", sender: nil)
-                                    }
-                                    
-                                }
-                                
-                                //
-                                
-                            } catch let error as NSError {
-                                print(error)
-                            }
-                            
-                            
-                            
-                            
-                        }
-                        task.resume()
-                        
-                    }
-                } catch let error as NSError {
-                    print(error)
-                }
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                })
             }
             
         }
-        task.resume()
-        
-        
-        
+      
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "toMapSegue"){
-
+            
         }
     }
     
@@ -170,7 +98,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-//                view.frame.origin.y += getKeyboardHeight(notification)
+        //                view.frame.origin.y += getKeyboardHeight(notification)
         view.frame.origin.y = 0
     }
     

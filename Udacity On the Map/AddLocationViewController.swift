@@ -21,6 +21,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.activityIndicator.hidden = true
+        activityIndicator.hidesWhenStopped = true
         self.locationTextField.delegate = self
         
     }

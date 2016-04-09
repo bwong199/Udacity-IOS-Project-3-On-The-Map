@@ -85,4 +85,85 @@ class FetchInfo {
 
 
     }
+    
+    func login(email: String, password: String, completionHandler:(success: Bool, error: String?, results: String?) -> Void){
+        print(email)
+        print(password)
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            if error != nil { // Handle error…
+                return
+            }
+            
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
+            let stringData = String(NSString(data: newData, encoding: NSUTF8StringEncoding)!)
+            
+            
+            //                        print(stringData)
+            //
+            if let data = stringData.dataUsingEncoding(NSUTF8StringEncoding) {
+                do {
+                    let json =   try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String:AnyObject]
+                    
+                    if let responseMessage = json["status"] as? NSObject {
+                        print(json["error"]!)
+                        
+                        completionHandler(success: false, error: String(json["error"]!), results: String(json["error"]!))
+                    }
+                    
+                    // allow access if account is fetched
+                    if let item = json["account"] as? NSObject {
+                        //                        print(item.valueForKey("key"))
+                        
+                        GlobalVariables.uniqueKey = String(item.valueForKey("key")!)
+                        
+                        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/users/" + String(item.valueForKey("key")!))!)
+                        let session = NSURLSession.sharedSession()
+                        let task = session.dataTaskWithRequest(request) { data, response, error in
+                            if error != nil { // Handle error...
+                                return
+                            }
+                            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
+                            //                            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+                            
+                            do {
+                                let json =   try NSJSONSerialization.JSONObjectWithData(newData, options: []) as! [String:AnyObject]
+                                //                                print(json)
+                                if let item = json["user"] as? NSObject {
+                                    print(item.valueForKey("first_name"))
+                                    print(item.valueForKey("last_name"))
+                                    
+                                    GlobalVariables.firstName = String(item.valueForKey("first_name")!)
+                                    GlobalVariables.lastName = String(item.valueForKey("last_name")!)
+                                    
+                                    completionHandler(success: true, error: nil, results: String(item))
+            
+                                }
+ 
+                            } catch let error as NSError {
+                                print(error)
+                            }
+                        }
+                        task.resume()
+                        
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            
+        }
+        task.resume()
+    }
+    
+    func submitLink(){
+        
+    }
 }
